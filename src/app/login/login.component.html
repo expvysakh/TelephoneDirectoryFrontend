@@ -1,14 +1,14 @@
 <div class="col-md-8 login-wrap">
 
-<form class="login-form" (ngSubmit)="OnSignIn(loginForm)" #loginForm="ngForm" >
+<form #loginForm="ngForm" class="login-form" (ngSubmit)="OnSignIn(loginForm)"  >
   <h1 class="h1">Sign in</h1>
   <div class="form-group">
     <label for="username">Username</label>
-    <input type="text" class="inputtext form-control" id="username" required>
+    <input type="text" class="inputtext form-control" name="username" required ngModel>
   </div>
   <div class="form-group">
     <label for="password">Password</label>
-    <input type="password" class="inputtext form-control" id="password" required>
+    <input type="password" class="inputtext form-control" name="password" required ngModel>
   </div>
   <div class="checkbox">
     <label><input type="checkbox"> Remember me</label>
