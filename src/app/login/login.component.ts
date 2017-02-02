@@ -14,6 +14,7 @@ import { LoginService } from './login.service';
 export class LoginComponent implements OnInit {
 userName;
 Password;
+userDetails;
   constructor(private router: Router, private loginService: LoginService) {
 
    }
@@ -22,18 +23,17 @@ Password;
 
 this.userName=form.value.username; 
 this.Password=form.value.password
-    this.RedirectToHome();
 
    
     this.loginService.Login(this.userName,this.Password);
   
   }
 
-  RedirectToHome() {
-    this.router.navigate(['/landing-container']);
-  }
+ 
 
   ngOnInit() {
+       
+
   }
 
 }

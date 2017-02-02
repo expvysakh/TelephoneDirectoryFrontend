@@ -25,7 +25,10 @@ export const MENU_ROUTES: Routes = [
   { path: 'add-directory', component: AddDirectoryComponent },
   { path: 'add-contact', component: AddContactComponent },
     { path: 'search-contact', component: SearchContactComponent },
-        { path: 'add-directory:id', component: AddDirectoryComponent }
+        { path: 'landing-container/add-directory:id', component: AddDirectoryComponent },
+                { path: 'landing-container/add-contact:id', component: AddContactComponent }
+
+
 
 
 
