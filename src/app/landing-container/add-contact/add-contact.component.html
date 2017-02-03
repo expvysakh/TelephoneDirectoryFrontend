@@ -1,53 +1,46 @@
 <div class="col-md-10">
   <h1 class="h1">Add contact</h1>
-  <form class="form-horizontal">
+  <form #contactForm= "ngForm" (ngSubmit)= "submitContact(contactForm)" class="form-horizontal">
     <div class="form-group">
       <label class="control-label col-sm-2" for="firstname">First name: </label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="firstname" placeholder="Enter first name">
+        <input type="text" class="form-control" id="firstname" name= "firstname" placeholder="Enter first name" maxLength="50" required pattern="[a-zA-Z]+" ngModel>
       </div>
     </div>
 
     <div class="form-group">
       <label class="control-label col-sm-2" for="lastname">Last name: </label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="lastname" placeholder="Enter first name">
+        <input type="text" class="form-control" id="lastname" name= "lastname" placeholder="Enter first name" maxLength="50" required pattern="[a-zA-Z]+" ngModel>
       </div>
     </div>
 
     <div class="form-group">
       <label class="control-label col-sm-2" for="telephonenumber">Telephone number: </label>
       <div class="col-sm-10">
-        <input type="number" class="form-control" id="telephonenumber" placeholder="Enter telephone number">
+        <input type="text" class="form-control" id="telephonenumber" name= "telephone" placeholder="Enter telephone number" required maxLength="10" pattern="[0-9]{10}" ngModel>
       </div>
     </div>
 
     <div class="form-group">
       <label class="control-label col-sm-2" for="address">Address: </label>
       <div class="col-sm-10">
-        <textarea class="form-control" id="address" placeholder="Enter address"></textarea>
+        <textarea class="form-control" id="address" placeholder="Enter address" maxLength="500" required pattern="[a-zA-Z0-9]+" ngModel name= "address"></textarea>
       </div>
     </div>
 
     <div class="form-group">
-      <label class="control-label col-sm-2" for="telephonedirectory">Telephone directory: </label>
+           <label class="control-label col-sm-2" for="address">Select Directory: </label>
       <div class="col-sm-10">
-        <select class="form-control" id="telephonedirectory">
-                    <option>--Select--</option>
 
-          <option>Directory 1</option>
-          <option>Directory 2</option>
-          <option>Directory 3</option>
-          <option>Directory 4</option>
+        <select [(ngModel)]= "Directory" class= "selectpicker form-control" #selectoperator name= "Directory" >
+          <option value="{{item.Id}}" *ngFor="let item of DirectoryList">{{item.Name}}</option>
         </select>
       </div>
-    </div>
-
-
-
+    </div>   
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-primary">Save contact</button>
+        <button type="submit" class="btn btn-primary">Save Contact</button>
       </div>
     </div>
   </form>

@@ -22,12 +22,10 @@ export class DirectoryListService {
 
   ];
 
-  getDirectories()
-    {
-    return JSON.stringify(this.directories);
+  // getDirectories()
+  //   {
+  //   return 
 
-
-    
-    }
+  //   }
 
 }

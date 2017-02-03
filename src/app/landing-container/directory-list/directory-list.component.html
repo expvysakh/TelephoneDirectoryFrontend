@@ -10,16 +10,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of directoryDetails">
-        <td>{{item.directoryname}}</td>
-        <td><a #directoryName1 [routerLink] = "['/landing-container/add-directory',item.directoryid]">Edit</a></td>
-        
+        <td>{{item.Name}}</td>
+        <td><a [routerLink] = "['/landing-container/add-directory',item.Id]" routerLinkActive="active">Edit</a></td>
       </tr>
-     
-     
-
-
-
-
     </tbody>
   </table>
 </div>

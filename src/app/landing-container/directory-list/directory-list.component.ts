@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DirectoryListService } from './directory-list.service';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import { HttpService } from '../../http.service';
 
 @Component({
   selector: 'app-directory-list',
@@ -11,22 +11,22 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class DirectoryListComponent implements OnInit {
 // currentId;
-directoryDetails;
+directoryDetails: any []= [];
   id: number;
     private sub: any;
 
 
-  constructor(private route: ActivatedRoute,private router: Router, private directoryList: DirectoryListService) { 
+  constructor(private httpService: HttpService ,private route: ActivatedRoute,private router: Router, private directoryList: DirectoryListService) { 
    
-    
-    console.log("got at constr");
   }
   
   ngOnInit() {
-     this.directoryDetails = JSON.parse(this.directoryList.getDirectories());
-     this.sub = this.route.params.subscribe(params => {
-       this.id = +params['id']; 
-    });
+     this.httpService.ListDirectory()
+     .subscribe(
+             (data)=>{           
+               this.directoryDetails= data;                              
+             }
+   ); 
   }
 
   

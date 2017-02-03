@@ -17,6 +17,7 @@ import { AddDirectoryComponent } from './landing-container/add-directory/add-dir
 import { AddContactComponent } from './landing-container/add-contact/add-contact.component';
 import { SearchContactComponent } from './landing-container/search-contact/search-contact.component';
 import { DirectoryListComponent } from './landing-container/directory-list/directory-list.component';
+import { HttpService } from './http.service';
 
 export const MENU_ROUTES: Routes = [
   { path: '', component: ContactListComponent },
@@ -24,25 +25,16 @@ export const MENU_ROUTES: Routes = [
   //  { path: '', redirectTo: '/contact-list', pathMatch: 'full' },
   { path: 'add-directory', component: AddDirectoryComponent },
   { path: 'add-contact', component: AddContactComponent },
-    { path: 'search-contact', component: SearchContactComponent },
-        { path: 'landing-container/add-directory:id', component: AddDirectoryComponent },
-                { path: 'landing-container/add-contact:id', component: AddContactComponent }
-
-
-
-
-
-
+  { path: 'search-contact', component: SearchContactComponent },
+  { path: 'add-directory/:id', component: AddDirectoryComponent },
+  { path: 'add-contact/:recordid', component: AddContactComponent }
 
 ];
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-
   { path: 'landing-container', component: LandingContainerComponent, children: MENU_ROUTES },
-
-  // { path: 'contact-list', component: ContactListComponent }
 
 ];
 
@@ -66,7 +58,7 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

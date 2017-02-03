@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-
+import { HttpService } from '../../http.service';
 @Injectable()
 export class ContactListService {
 
-  constructor() { }
+  constructor(private httpService: HttpService) { }
 
    contacts = [
     {
@@ -34,10 +34,9 @@ export class ContactListService {
 
    getContacts()
     {
-    return JSON.stringify(this.contacts);
-
-
-    
+      
+     
+    return null    
     }
 
 }

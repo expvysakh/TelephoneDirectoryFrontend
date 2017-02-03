@@ -15,15 +15,13 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of contactDetails">
-        <td>{{item.firstname}}</td>
-         <td>{{item.lastname}}</td>
-          <td>{{item.telephonenumber}}</td>
-           <td>{{item.address}}</td>
-            <td>{{item.telephonedirectory}}</td>
-        <td><a #phoneNumber [routerLink] = "['/landing-container/add-contact',item.telephonenumber]">Edit</a></td>
-        
-      </tr>
-     
+        <td>{{item.FirstName}}</td>
+         <td>{{item.LastName}}</td>
+          <td>{{item.TelephoneNumber}}</td>
+           <td>{{item.Address}}</td>
+            <td>{{item.DirectoryName}}</td>
+        <td><a  [routerLink] = "['/landing-container/add-contact',item.RecordId]">Edit</a></td>        
+      </tr>     
     </tbody>
   </table>
 </div>

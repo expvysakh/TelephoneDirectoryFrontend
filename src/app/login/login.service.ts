@@ -1,48 +1,38 @@
 import { Injectable } from '@angular/core';
 import { LoginComponent } from './login.component';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import { HttpService } from '../http.service';
 
 
 @Injectable()
 export class LoginService {
 
-  constructor(private router: Router) { }
-  u;
-  p;
-  v;
-  
- 
-  response =  {
-
-      "valid": false
-    };
-
-  
-
+  constructor(private router: Router, private httpService: HttpService ) { }
+   
   RedirectToHome() {
+    console.log("insideRedirectToHome function");
+    
     this.router.navigate(['/landing-container']);
   }
-
+  response= { "Isvalid": false};
   Login(userName, Password) {
-    console.log("From login service", userName, Password);
+    this.httpService.Login({"UserName": userName, "Password": Password})
+    .subscribe(
+         (data)=>{           
+               this.response= data; 
+               if (data.IsValid==true)
+               {                    
+                if(confirm(data.ResponseMessage)){
+                this.RedirectToHome();}
+               }
+               else 
+               {
+                alert(data.ResponseMessage);
+               }                              
+           }       
    
-
-      if (this.response.valid == true) {
-        alert("valid");
-        this.RedirectToHome();
-
-      }
-      else {
-        alert("not valid");
-
-      }
-     
-
-
+   );         
     }
-
-
 
   }
 

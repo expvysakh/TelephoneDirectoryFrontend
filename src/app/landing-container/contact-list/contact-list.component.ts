@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactListService } from './contact-list.service';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import { HttpService } from '../../http.service';
 
 
 @Component({
@@ -13,18 +13,19 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ContactListComponent implements OnInit {
 
-  contactDetails;
+  contactDetails: any []= [];
   id: number;
     private sub: any;
 
-  constructor(private route: ActivatedRoute,private router: Router, private contactList: ContactListService) { }
+  constructor(private httpService: HttpService, private route: ActivatedRoute,private router: Router, private contactList: ContactListService) { }
 
   ngOnInit() {
-
-    this.contactDetails = JSON.parse(this.contactList.getContacts());
-     this.sub = this.route.params.subscribe(params => {
-       this.id = +params['id']; 
-    });
+    this.httpService.ListRecord()
+     .subscribe(
+             (data)=>{           
+               this.contactDetails= data;                              
+             }
+   ); 
   }
 
 }
