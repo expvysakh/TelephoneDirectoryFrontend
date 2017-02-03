@@ -16,7 +16,7 @@
     <div class="form-group">
       <label class="control-label col-sm-2" for="searchname">Name:</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="searchname" placeholder="Enter name" ngModel name="searchname">
+        <input type="text" class="form-control" id="searchname" placeholder="Enter name" ngModel name="searchname" required maxLength="50" pattern="[a-zA-Z]+">
       </div>
     </div>
 
@@ -33,7 +33,7 @@
     <div class="form-group">
       <label class="control-label col-sm-2" for="searchnumber">Number:</label>
       <div class="col-sm-10">
-        <input type="number" class="form-control" id="searchnumber" placeholder="Enter number" ngModel name="searchnumber" >
+        <input type="text" class="form-control" id="searchnumber" placeholder="Enter number" ngModel name="searchnumber" required maxLength="10" pattern="[0-9]{10}">
       </div>
     </div>
 

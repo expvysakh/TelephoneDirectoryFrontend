@@ -1,10 +1,10 @@
 <div class="col-md-10">
-  <h1 class="h1">Add directory</h1>
+  <br /><br /><br />
   <form #directoryForm="ngForm" (ngSubmit)="addDirectory(directoryForm)" class="form-horizontal">
     <div class="form-group">
       <label class="control-label col-sm-2" for="directoryname">Directory name: </label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id= "directoryname" name= "directoryname" placeholder="Enter directory name" [(ngModel)]= Name required>
+        <input type="text" class="form-control" id= "directoryname" name= "directoryname" placeholder="Enter directory name" [(ngModel)]= Name maxLength="50" required pattern="[a-zA-Z0-9]+">
       </div>
     </div>
     <div *ngIf= false class="form-group">

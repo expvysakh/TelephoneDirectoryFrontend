@@ -11,7 +11,7 @@
     <tbody>
       <tr *ngFor="let item of directoryDetails">
         <td>{{item.Name}}</td>
-        <td><a [routerLink] = "['/landing-container/add-directory',item.Id]" routerLinkActive="active">Edit</a></td>
+        <td><a class="btn btn-primary" [routerLink] = "['/landing-container/add-directory',item.Id]" routerLinkActive="active">Edit</a></td>
       </tr>
     </tbody>
   </table>
